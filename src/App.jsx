@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import Hero from './components/Hero'
-import About from './components/About'
-import Experience from './components/Experience'
-import Certifications from './components/Certifications'
-import Awards from './components/Awards'
-import ClientAppreciation from './components/ClientAppreciation'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
-import Navbar from './components/Navbar'
+import Hero from './components/hero'
+import About from './components/about'
+import Experience from './components/experience'
+import Certifications from './components/certifications'
+import Awards from './components/awards'
+import ClientAppreciation from './components/clientAppreciation'
+import Skills from './components/skills'
+import Contact from './components/contact'
+import Navbar from './components/navbar'
 
 export default function App() {
   const [dark, setDark] = useState(true)
