@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --transition-duration-400: 400ms;
+
+  --color-accent:   #0d9488;
+  --color-cream:    #f0ece4;
+  --color-charcoal: #0e0e0e;
+  --color-surface:  #161616;
+  --color-surface2: #1e1e1e;
+}
+
+/* ============================================
+   DARK THEME (default)
+   ============================================ */
+.theme-dark {
+  --bg-primary:    #0e0e0e;
+  --bg-secondary:  #111111;
+  --bg-surface:    #161616;
+  --bg-surface2:   #1e1e1e;
+  --text-primary:  #f0ece4;
+  --text-muted:    rgba(240, 236, 228, 0.50);
+  --text-faint:    rgba(240, 236, 228, 0.25);
+  --accent:        #0d9488;
+  --accent-light:  #14b8a6;
+  --accent-dark:   #0f766e;
+  --border:        rgba(240, 236, 228, 0.06);
+  --border-accent: rgba(13, 148, 136, 0.30);
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   LIGHT THEME
+   ============================================ */
+.theme-light {
+  --bg-primary:    #d4d2d2;
+  --bg-secondary:  #bebebe;
+  --bg-surface:    #6f6f6f;
+  --bg-surface2:   #9d9d9d;
+  --text-primary:  #1a1a1a;
+  --text-muted:    rgba(16, 16, 16, 0.729);
+  --text-faint:    rgba(0, 0, 0, 0.536);
+  --accent:        #0d9488;
+  --accent-light:  #0f766e;
+  --accent-dark:   #134e4a;
+  --border:        rgba(26, 26, 26, 0.08);
+  --border-accent: rgba(13, 148, 136, 0.35);
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Smooth transition on theme switch */
+.theme-dark *, .theme-light * {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}
+
+/* ============================================
+   GLOBAL BASE
+   ============================================ */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ============================================
+   REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   DECORATIVE UTILITIES
+   ============================================ */
+.gold-line::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 12px;
+}
+.gold-line-center::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 12px auto 0;
+}
+
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.pyramid-tier {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+/* ============================================
+   NAVBAR THEMED CLASSES
+   ============================================ */
+.nav-scrolled {
+  background-color: color-mix(in srgb, var(--bg-primary) 88%, transparent);
+  border-color: var(--border);
+}
+.nav-logo        { color: var(--accent); }
+.nav-link        { color: var(--text-muted); }
+.nav-link:hover  { color: var(--accent); }
+.nav-hamburger   { background-color: var(--accent); }
+.nav-mobile-menu { background-color: color-mix(in srgb, var(--bg-primary) 95%, transparent); }
+
+/* Toggle */
+.toggle-track { background-color: var(--bg-surface2); border: 1px solid var(--border-accent); }
+.toggle-thumb { background-color: var(--accent); }
+
+/* ============================================
+   REUSABLE THEMED HELPERS
+   (use these class names in your JSX going
+    forward instead of hardcoded hex values)
+   ============================================ */
+
+/* Text */
+.t-primary { color: var(--text-primary); }
+.t-muted   { color: var(--text-muted); }
+.t-faint   { color: var(--text-faint); }
+.t-accent  { color: var(--accent); }
+
+/* Borders */
+.b-default { border-color: var(--border); }
+.b-accent  { border-color: var(--border-accent); }
+
+/* Backgrounds */
+.bg-primary      { background-color: var(--bg-primary); }
+.bg-secondary    { background-color: var(--bg-secondary); }
+.bg-surface      { background-color: var(--bg-surface); }
+.bg-surface2     { background-color: var(--bg-surface2); }
+.bg-accent       { background-color: var(--accent); }
+.bg-accent-faint { background-color: color-mix(in srgb, var(--accent) 8%, transparent); }
+
+/* Sections — alternate bg automatically */
+.theme-dark section,
+.theme-light section {
+  background-color: var(--bg-primary);
+}
+.theme-dark section:nth-child(even),
+.theme-light section:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
