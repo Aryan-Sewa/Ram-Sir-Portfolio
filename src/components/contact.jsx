@@ -3,14 +3,14 @@ import useReveal from './useReveal'
 const contactLinks = [
   {
     type: 'Phone',
-    value: '+91 95000 32522',
-    href: 'tel:+919500032522',
+    value: '+91 99627 49311',
+    href: 'tel:+919962749311',
     icon: '✆',
   },
   {
     type: 'Email',
-    value: 'ramchandar@teccitylabs.com',
-    href: 'mailto:ramchandar@teccitylabs.com',
+    value: 'ramchandar@teccitylabs.co.in',
+    href: 'mailto:ramchandar@teccitylabs.co.in',
     icon: '✉',
   },
   {
