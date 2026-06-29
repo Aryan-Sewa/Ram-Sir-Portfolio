@@ -33,7 +33,7 @@ const timelineItems = [
     year: '2018-2024',
     title: 'Director of Marketing & Operations ',
     company: 'IT Start-up',
-    description: 'started and IT services start-up and lead the whole team.',
+    description: 'Has been a part of an IT services start-up since their inception and helped them scale up from 15 employees to 150 employees in a span of 5 yrs..  signed up 3 major client accounts and helped them start their 1st overseas branch in Singapore',
     tags: ['Next level CEO', 'Team-Carry'],
   },
   {
